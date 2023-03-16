@@ -1,0 +1,15 @@
+{
+  "name": "whatsapp-ysai",
+  "version": "1.0.0",
+  "description": "Webhook WhatsApp Cloud API YSAI Official",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "YSAI Official",
+  "license": "ISC",
+  "dependencies": {
+    "whatsapp-cloud-api": "^0.2.6"
+  }
+}
