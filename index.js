@@ -3,10 +3,10 @@ const { createBot } = require('whatsapp-cloud-api');
 (async () => {
   try {
     // replace the values below from the values you copied above
-    const from = '101383782809725';
-    const token = 'EAARG0hF2JCoBAALjahCIqnTdKECh4JL7iFkmziCiIJQxMtkR4beacOZAX5IELtiasGC7sFC9BxLGVx9Y9bfg738liGB3NSdZAsl5mqkifxK26JnPeMZBPGbNZAhZC1HmpYNZBHhpWS0aZCeiC2cIyuVtQt1fNmFwzcMgi68z1C8y58qUh4DvZBYU';
-    const to = '6287780021801'; // your phone number without the leading '+'
-    const webhookVerifyToken = 'ysai.official'; // use a random value, e.g. 'bju#hfre@iu!e87328eiekjnfw'
+    const from = 'ID';
+    const token = 'TOKEN';
+    const to = 'WA'; // your phone number without the leading '+'
+    const webhookVerifyToken = 'WEBHOOKTOKEN'; // use a random value, e.g. 'bju#hfre@iu!e87328eiekjnfw'
 
     const bot = createBot(from, token);
 
@@ -32,6 +32,8 @@ const { createBot } = require('whatsapp-cloud-api');
             {id: 'istana-yatim', title: 'Istana Yatim YSAI', description: 'Pembangunan Panti Pesantren Yatim'},
             {id: 'patoy-toga', title: 'YSAI menuju Intansari', description: 'Integrasi Pertanian Desa Mandiri'},
             {id: 'ksas', title: 'KSAS Untuk UMKM', description: 'Koperasi Surya Alam Indonesia'}
+          ],['Hubungi Admin']: [
+            {id: 'chat-admin', title: 'Chat Admin', description: 'Mulai percakapan dengan admin kami'}
           ]
         });
       } else if (msg.type === 'unsupported') {
@@ -80,6 +82,10 @@ const { createBot } = require('whatsapp-cloud-api');
         ]);
       } else if (msg.data.id === 'ksas') {
         await bot.sendTemplate(msg.from, 'ksas', 'id');
+      } else if (msg.data.id === 'chat-admin') {
+        await bot.sendText(msg.from, 'Salam silaturahim dari kami Yayasan Surya Alam Indonesia. Mohon maaf akun WhatsApp ini tidak bisa digunakan untuk percakapan dua arah. Silahkan hubungi Admin kami untuk memulai percakapan dengan cara klik link berikut https://sociabuzz.com/ysai_official', {
+          preview_url: true
+        });
       }
     });
   } catch (err) {
